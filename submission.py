@@ -13,6 +13,10 @@ import json
 from pathlib import Path
 
 
+# chuyển article thành set -> tránh trùng
+# chuyển links thành dict với key = source & value = list các đỉnh đến 
+# gọi các link dict bằng các phần tử trong article, nếu có thì lưu list đỉnh đến ở kết quả, nếu không thì để rỗng
+# nếu số id ở link thừa số với aritcle, báo value error
 def load_graph(
     articles_path: Path, links_path: Path
 ) -> tuple[list[str], list[list[int]]]:
@@ -25,9 +29,48 @@ def load_graph(
     Nút cụt có danh sách đích rỗng. Không gắn cứng số đỉnh/cạnh.
     Báo ValueError nếu đồ thị rỗng hoặc cạnh chứa ID ngoài tập đỉnh.
     """
-    # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt load_graph")
 
+    articles_set = set()
+
+    with open(articles_path, "r", encoding = "utf-8") as f:
+        for line in f:
+            line = line.strip()
+
+            if not line or line.startswith("#"):
+                continue
+
+            articles_set.add(line)
+
+    if not articles_set:
+        raise ValueError("Graph hổng có gì hết trơn (Graph rỗng)")
+
+    aritcles_set_sorted = sorted(articles_set, key = lambda x: x.encode("utf-8"))
+
+    index = {article_id: i for i, article_id in enumerate(aritcles_set_sorted)}
+
+    graph = {}
+    with open(links_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+
+            if not line or line.startswith("#"):
+                continue
+
+            block = line.split("\t")
+
+            if len(block)!= 2:
+                raise ValueError(f"{line} - thằng này bị cái gì ýyyyy (links sai format lưu)")
+
+            s, t = block
+
+            if s not in index or t not in index:
+                raise ValueError(f"{line} - thằng này không trong gia phảaaaa (links chứa đối tượng không thuộc articles)")
+
+            if s not in graph:
+                graph[s] = set()
+            graph[s].add(t)
+    out= [sorted(index[t] for t in graph.get(source,set())) for source in aritcles_set_sorted]
+    return aritcles_set_sorted, out
 
 def pagerank(
     ids: list[str],
