@@ -1,34 +1,28 @@
 {
   "submission": "C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py",
-  "score": 0,
+  "score": 34,
   "max_score": 100,
   "criteria": [
     {
       "criterion": "A1",
       "description": "Đọc đồ thị",
-      "score": 0,
+      "score": 5,
       "max_score": 5,
-      "passed": false,
-      "error": "NotImplementedError: Chưa cài đặt load_graph",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 246, in test_a1\n    names, out = s.load_graph(a, e)\n                 ~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 29, in load_graph\n    raise NotImplementedError(\"Chưa cài đặt load_graph\")\nNotImplementedError: Chưa cài đặt load_graph\n"
+      "passed": true
     },
     {
       "criterion": "A2",
       "description": "Một vòng PageRank",
-      "score": 0,
+      "score": 8,
       "max_score": 8,
-      "passed": false,
-      "error": "NotImplementedError: Chưa cài đặt pagerank",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 259, in test_a2\n    vector(s.pagerank(ids_for(out), out, beta, 1e-14, 1),\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 53, in pagerank\n    raise NotImplementedError(\"Chưa cài đặt pagerank\")\nNotImplementedError: Chưa cài đặt pagerank\n"
+      "passed": true
     },
     {
       "criterion": "A3",
       "description": "Nghiệm PageRank: đồ thị nhỏ và Wikispeedia",
-      "score": 0,
+      "score": 12,
       "max_score": 12,
-      "passed": false,
-      "error": "NotImplementedError: Chưa cài đặt pagerank",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 267, in test_a3\n    vector(s.pagerank(ids_for(out), out, beta, 1e-12, 2000),\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 53, in pagerank\n    raise NotImplementedError(\"Chưa cài đặt pagerank\")\nNotImplementedError: Chưa cài đặt pagerank\n"
+      "passed": true
     },
     {
       "criterion": "A4",
@@ -36,8 +30,8 @@
       "score": 0,
       "max_score": 5,
       "passed": false,
-      "error": "NotImplementedError: Chưa cài đặt pagerank",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 282, in test_a4\n    vector(s.pagerank(ids_for(out), out, .85, 1e-30, 3), expected, 1e-12)\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 53, in pagerank\n    raise NotImplementedError(\"Chưa cài đặt pagerank\")\nNotImplementedError: Chưa cài đặt pagerank\n"
+      "error": "AssertionError: Đầu vào không hợp lệ phải báo ValueError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 289, in test_a4\n    raises_value_error(s.pagerank, ids_for(out), out, beta, tol, count)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 77, in raises_value_error\n    raise AssertionError(\"Đầu vào không hợp lệ phải báo ValueError\")\nAssertionError: Đầu vào không hợp lệ phải báo ValueError\n"
     },
     {
       "criterion": "B1",
@@ -46,7 +40,7 @@
       "max_score": 6,
       "passed": false,
       "error": "NotImplementedError: Chưa cài đặt topic_distribution",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 304, in test_b1\n    vector(s.topic_distribution(list(\"ABCD\"), path, \"subject.Science\"), [.5,0,.5,0], 1e-12)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 69, in topic_distribution\n    raise NotImplementedError(\"Chưa cài đặt topic_distribution\")\nNotImplementedError: Chưa cài đặt topic_distribution\n"
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 304, in test_b1\n    vector(s.topic_distribution(list(\"ABCD\"), path, \"subject.Science\"), [.5,0,.5,0], 1e-12)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 160, in topic_distribution\n    raise NotImplementedError(\"Chưa cài đặt topic_distribution\")\nNotImplementedError: Chưa cài đặt topic_distribution\n"
     },
     {
       "criterion": "B2",
@@ -54,17 +48,15 @@
       "score": 0,
       "max_score": 10,
       "passed": false,
-      "error": "NotImplementedError: Chưa cài đặt pagerank",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 315, in test_b2\n    vector(s.pagerank(ids_for(out), out, .85, 1e-14, 1, v),\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 53, in pagerank\n    raise NotImplementedError(\"Chưa cài đặt pagerank\")\nNotImplementedError: Chưa cài đặt pagerank\n"
+      "error": "AssertionError: Đầu vào không hợp lệ phải báo ValueError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 318, in test_b2\n    raises_value_error(s.pagerank, ['A','B'], [[1],[]], .85, 1e-10, 100, v)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 77, in raises_value_error\n    raise AssertionError(\"Đầu vào không hợp lệ phải báo ValueError\")\nAssertionError: Đầu vào không hợp lệ phải báo ValueError\n"
     },
     {
       "criterion": "B3",
       "description": "Nghiệm ba chủ đề",
-      "score": 0,
+      "score": 9,
       "max_score": 9,
-      "passed": false,
-      "error": "NotImplementedError: Chưa cài đặt pagerank",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 325, in test_b3\n    vector(s.pagerank(ids_for(out), out, .85, 1e-12, 1000, v), dense_solution(out, .85, v))\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 53, in pagerank\n    raise NotImplementedError(\"Chưa cài đặt pagerank\")\nNotImplementedError: Chưa cài đặt pagerank\n"
+      "passed": true
     },
     {
       "criterion": "B4",
@@ -73,7 +65,7 @@
       "max_score": 5,
       "passed": false,
       "error": "NotImplementedError: Chưa cài đặt mix_pageranks",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 339, in test_b4\n    vector(s.mix_pageranks(rs,weights), dense_solution(out,.85,mixed_v))\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 85, in mix_pageranks\n    raise NotImplementedError(\"Chưa cài đặt mix_pageranks\")\nNotImplementedError: Chưa cài đặt mix_pageranks\n"
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 339, in test_b4\n    vector(s.mix_pageranks(rs,weights), dense_solution(out,.85,mixed_v))\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 176, in mix_pageranks\n    raise NotImplementedError(\"Chưa cài đặt mix_pageranks\")\nNotImplementedError: Chưa cài đặt mix_pageranks\n"
     },
     {
       "criterion": "C1",
@@ -82,7 +74,7 @@
       "max_score": 8,
       "passed": false,
       "error": "NotImplementedError: Chưa cài đặt normalize_text",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 349, in test_c1\n    require(s.normalize_text(text) == expected, \"Chuẩn hóa sai ASCII/Unicode/khoảng trắng\")\n            ~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 98, in normalize_text\n    raise NotImplementedError(\"Chưa cài đặt normalize_text\")\nNotImplementedError: Chưa cài đặt normalize_text\n"
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 349, in test_c1\n    require(s.normalize_text(text) == expected, \"Chuẩn hóa sai ASCII/Unicode/khoảng trắng\")\n            ~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 189, in normalize_text\n    raise NotImplementedError(\"Chưa cài đặt normalize_text\")\nNotImplementedError: Chưa cài đặt normalize_text\n"
     },
     {
       "criterion": "C2",
@@ -91,7 +83,7 @@
       "max_score": 17,
       "passed": false,
       "error": "NotImplementedError: Chưa cài đặt shingle_id",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 359, in test_c2\n    actual = s.shingle_id(word,p)\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 121, in shingle_id\n    raise NotImplementedError(\"Chưa cài đặt shingle_id\")\nNotImplementedError: Chưa cài đặt shingle_id\n"
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 359, in test_c2\n    actual = s.shingle_id(word,p)\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 212, in shingle_id\n    raise NotImplementedError(\"Chưa cài đặt shingle_id\")\nNotImplementedError: Chưa cài đặt shingle_id\n"
     },
     {
       "criterion": "C3",
@@ -100,7 +92,7 @@
       "max_score": 6,
       "passed": false,
       "error": "NotImplementedError: Chưa cài đặt jaccard",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 382, in test_c3\n    close(s.jaccard(a,b),expected)\n          ~~~~~~~~~^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 145, in jaccard\n    raise NotImplementedError(\"Chưa cài đặt jaccard\")\nNotImplementedError: Chưa cài đặt jaccard\n"
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 382, in test_c3\n    close(s.jaccard(a,b),expected)\n          ~~~~~~~~~^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 236, in jaccard\n    raise NotImplementedError(\"Chưa cài đặt jaccard\")\nNotImplementedError: Chưa cài đặt jaccard\n"
     },
     {
       "criterion": "C4",
@@ -109,7 +101,7 @@
       "max_score": 4,
       "passed": false,
       "error": "NotImplementedError: Chưa cài đặt minhash",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 410, in test_c4\n    integers(s.minhash(set(),params),[11,11,11])\n             ~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 135, in minhash\n    raise NotImplementedError(\"Chưa cài đặt minhash\")\nNotImplementedError: Chưa cài đặt minhash\n"
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 410, in test_c4\n    integers(s.minhash(set(),params),[11,11,11])\n             ~~~~~~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\submission.py\", line 226, in minhash\n    raise NotImplementedError(\"Chưa cài đặt minhash\")\nNotImplementedError: Chưa cài đặt minhash\n"
     },
     {
       "criterion": "IO",
@@ -117,8 +109,8 @@
       "score": 0,
       "max_score": 5,
       "passed": false,
-      "error": "AssertionError: Tiến trình thoát mã 1: Traceback (most recent call last):\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 276, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 196, in main\r\n    ids, out_neighbors = load_graph(\r\n                         ~~~~~~~~~~^\r\n        graph_dir / \"articles.tsv\", graph_dir / \"links.tsv\"\r\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n    )\r\n    ^\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 29, in load_graph\r\n    raise NotImplementedError(\"Ch\\u01b0a c�i \\u0111\\u1eb7t load_graph\")\r\nNotImplementedError: Ch\\u01b0a c�i \\u0111\\u1eb7t load_graph\r\n",
-      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 489, in test_io\n    run_process([sys.executable,str(ctx.submission),'--data-dir',str(data),\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        '--hash-params',str(ctx.hash_params),'--pairs',str(pair_path),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        '--output-dir',str(target),'--beta',str(beta),'--tol','1e-12',\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        '--max-iter','1000'],ctx.timeout,cwd=root,new_session=False)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 446, in run_process\n    require(proc.returncode==0, f\"Tiến trình thoát mã {proc.returncode}: {message[-2000:]}\")\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 47, in require\n    raise AssertionError(message)\nAssertionError: Tiến trình thoát mã 1: Traceback (most recent call last):\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 276, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 196, in main\r\n    ids, out_neighbors = load_graph(\r\n                         ~~~~~~~~~~^\r\n        graph_dir / \"articles.tsv\", graph_dir / \"links.tsv\"\r\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n    )\r\n    ^\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 29, in load_graph\r\n    raise NotImplementedError(\"Ch\\u01b0a c�i \\u0111\\u1eb7t load_graph\")\r\nNotImplementedError: Ch\\u01b0a c�i \\u0111\\u1eb7t load_graph\r\n\n"
+      "error": "AssertionError: Tiến trình thoát mã 1: Traceback (most recent call last):\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 367, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 309, in main\r\n    teleport = topic_distribution(\r\n        ids, graph_dir / \"categories.tsv\", \"subject.\" + topic\r\n    )\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 160, in topic_distribution\r\n    raise NotImplementedError(\"Ch\\u01b0a c�i \\u0111\\u1eb7t topic_distribution\")\r\nNotImplementedError: Ch\\u01b0a c�i \\u0111\\u1eb7t topic_distribution\r\n",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 553, in main\n    TESTS[args.worker](module,args)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 489, in test_io\n    run_process([sys.executable,str(ctx.submission),'--data-dir',str(data),\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        '--hash-params',str(ctx.hash_params),'--pairs',str(pair_path),\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        '--output-dir',str(target),'--beta',str(beta),'--tol','1e-12',\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        '--max-iter','1000'],ctx.timeout,cwd=root,new_session=False)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 446, in run_process\n    require(proc.returncode==0, f\"Tiến trình thoát mã {proc.returncode}: {message[-2000:]}\")\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\autograder.py\", line 47, in require\n    raise AssertionError(message)\nAssertionError: Tiến trình thoát mã 1: Traceback (most recent call last):\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 367, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 309, in main\r\n    teleport = topic_distribution(\r\n        ids, graph_dir / \"categories.tsv\", \"subject.\" + topic\r\n    )\r\n  File \"C:\\Users\\ADMIN\\Documents\\N2 K1\\Gi\\u1ea3i thu\\u1eadt DS\\wikispeedia-student-package\\submission.py\", line 160, in topic_distribution\r\n    raise NotImplementedError(\"Ch\\u01b0a c�i \\u0111\\u1eb7t topic_distribution\")\r\nNotImplementedError: Ch\\u01b0a c�i \\u0111\\u1eb7t topic_distribution\r\n\n"
     }
   ],
   "pairs_file": "C:\\Users\\ADMIN\\Documents\\N2 K1\\Giải thuật DS\\wikispeedia-student-package\\data\\pairs.csv",

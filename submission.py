@@ -72,6 +72,8 @@ def load_graph(
     out= [sorted(index[t] for t in graph.get(source,set())) for source in aritcles_set_sorted]
     return aritcles_set_sorted, out
 
+
+
 def pagerank(
     ids: list[str],
     out_neighbors: list[list[int]],
@@ -92,8 +94,54 @@ def pagerank(
     Trả vector mới nhất theo thứ tự ids, không trả thống kê phụ.
     Báo ValueError nếu tham số hoặc phân phối dịch chuyển không hợp lệ.
     """
-    # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt pagerank")
+
+    #ktra teleport, khoi tao r0
+    if beta <= 0 or beta >= 1:
+        raise ValueError(f"Beta ngơ rồi (Invalid beta)")    
+    if tol <0:
+        raise ValueError(f"Tol ngược hướng rồi bé ời (Invalid tol)")
+    if max_iter < 1:
+        raise ValueError(f"CHo vòng thế này khỏi quay (Invalid max_iter)")
+    n = len(ids)
+
+    if teleport is not None:
+        if len(teleport) != n or abs(sum(teleport) - 1) >  1e-12:
+            raise ValueError(f"Cái thằng teleport bị làm sao ý (Invalid distribution-shifted list)")
+    else: teleport = [float(1/n)] * n
+    
+    r = teleport.copy()
+
+    adjacent_list = []
+    for i in range (0,n):
+        out_list = out_neighbors[i]
+        group = (len(out_list), out_list) # vd: (dA, [A, B, D])
+        adjacent_list.append(group)
+
+    # tap diem nut cut
+    dangling_node = []
+    for i in range (0,n):
+        if adjacent_list[i][1] == []:
+            dangling_node.append(i)
+    
+    for _ in range( max_iter):
+        dangling_point = sum(list(r[x] for x in dangling_node))
+        r_t = [0.0] * n
+        for i in range (0,n):
+            if adjacent_list[i][0]:
+                temp = r[i]/adjacent_list[i][0]
+                for j in adjacent_list[i][1]:
+                    r_t[j] += temp
+
+        for i in range (n): 
+            r_t[i] = beta*r_t[i] + dangling_point*beta/n + (1 - beta)*teleport[i]
+
+        diff = sum(abs(a - b) for a, b in zip (r, r_t))
+        r = r_t.copy()
+        if diff <= tol:
+            break
+    return r
+    
+
 
 
 def topic_distribution(
