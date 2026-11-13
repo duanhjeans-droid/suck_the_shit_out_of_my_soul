@@ -11,6 +11,7 @@ import argparse
 import csv
 import json
 from pathlib import Path
+import math
 
 
 # chuyển article thành set -> tránh trùng
@@ -44,9 +45,9 @@ def load_graph(
     if not articles_set:
         raise ValueError("Graph hổng có gì hết trơn (Graph rỗng)")
 
-    aritcles_set_sorted = sorted(articles_set, key = lambda x: x.encode("utf-8"))
+    articles_set_sorted = sorted(articles_set, key = lambda x: x.encode("utf-8"))
 
-    index = {article_id: i for i, article_id in enumerate(aritcles_set_sorted)}
+    index = {article_id: i for i, article_id in enumerate(articles_set_sorted)}
 
     graph = {}
     with open(links_path, "r", encoding="utf-8") as f:
@@ -58,19 +59,19 @@ def load_graph(
 
             block = line.split("\t")
 
-            if len(block)!= 2:
+            if len(block)!= 2: 
                 raise ValueError(f"{line} - thằng này bị cái gì ýyyyy (links sai format lưu)")
 
-            s, t = block
+            s, t = block 
 
             if s not in index or t not in index:
                 raise ValueError(f"{line} - thằng này không trong gia phảaaaa (links chứa đối tượng không thuộc articles)")
 
-            if s not in graph:
+            if s not in graph: 
                 graph[s] = set()
             graph[s].add(t)
-    out= [sorted(index[t] for t in graph.get(source,set())) for source in aritcles_set_sorted]
-    return aritcles_set_sorted, out
+    out= [sorted(index[t] for t in graph.get(source,set())) for source in articles_set_sorted]
+    return articles_set_sorted, out
 
 
 
@@ -98,7 +99,7 @@ def pagerank(
     #ktra teleport, khoi tao r0
     if beta <= 0 or beta >= 1:
         raise ValueError(f"Beta ngơ rồi (Invalid beta)")    
-    if tol <0:
+    if tol <= 0:
         raise ValueError(f"Tol ngược hướng rồi bé ời (Invalid tol)")
     if max_iter < 1:
         raise ValueError(f"CHo vòng thế này khỏi quay (Invalid max_iter)")
@@ -107,6 +108,11 @@ def pagerank(
     if teleport is not None:
         if len(teleport) != n or abs(sum(teleport) - 1) >  1e-12:
             raise ValueError(f"Cái thằng teleport bị làm sao ý (Invalid distribution-shifted list)")
+        for x in teleport:
+            if not isinstance(x, (int, float)) or isinstance(x,bool):
+                raise ValueError("teleport chứa giá trị không phải số thực")
+            if x <0 or not math.isfinite(x): # bắt âm, NaN, inf
+                raise ValueError("teleport chứa giá trị âm hoặc vô hạn")
     else: teleport = [float(1/n)] * n
     
     r = teleport.copy()
@@ -157,9 +163,37 @@ def topic_distribution(
     nhãn tham chiếu ID ngoài ids. Không dùng nội dung bài để suy ra nhãn.
     """
     # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt topic_distribution")
+    id_set= set(ids)
+    topic_articles= set()
+    with open(categories_path, "r", encoding= "utf-8") as f:
+        for line in f: 
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            parts= line.split("\t")
+            if len(parts) !=2:
+                raise ValueError(f"{line} - thằng này bị cái gì ýyyyy (links sai format lưu)")
+            article, label = parts
 
+            # kiem tra id co ton tai khong
+            if article not in id_set:
+                raise ValueError(f"{line} - thằng này không trong gia phảaaaa (links chứa đối tượng không thuộc articles)")
 
+            # kiem tra nhan co thuoc chu de khong
+            if label == prefix or label.startswith(prefix + "."):
+                topic_articles.add(article)
+    if not topic_articles:
+        raise ValueError("Tập chủ đề rỗng")
+
+    # vector phan phối
+    weight= 1.0/ len(topic_articles)
+    result=[]
+    for article in ids:
+        if article in topic_articles:
+            result.append(weight)
+        else:
+            result.append(0.0)
+    return result
 def mix_pageranks(
     topic_scores: list[list[float]], weights: list[float]
 ) -> list[float]:
@@ -173,7 +207,30 @@ def mix_pageranks(
     Báo ValueError nếu danh sách rỗng, kích thước hoặc trọng số không hợp lệ.
     """
     # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt mix_pageranks")
+    if not topic_scores:
+        raise ValueError(f" topic_score bỏ nhà đi rồi( rỗng)") 
+    if not weights:
+        raise ValueError(f"weights bỏ nhà đi rồi( rỗng)")
+    if len(topic_scores) != len(weights):
+        raise ValueError(f" topic_scores và weights dỗi nhau rồi( khác độ dài)")
+    for i in range (0,len(topic_scores)):
+        if len(topic_scores[0]) != len(topic_scores[i]):
+            raise ValueError(f"nội bộ trong topic_scores bất hòa")
+    for i in weights:
+        if not isinstance(i, (int,float)) or isinstance(i, bool):
+            raise ValueError(f" Có giá trị không hợp lệ trong weights")
+        if i<0 or not math.isfinite(i):
+            raise ValueError(f" Có giá trị âm hoặ vô hạn")
+    if abs(sum(weights) - 1.0) > 1e-12:
+        raise ValueError(f"Tổng weights phải bằng 1")
+    n= len(topic_scores[0])
+    results = [0.0] * n
+    for vector, w in zip(topic_scores, weights):
+        for i in range(len(vector)):
+            results[i] += w* vector[i]
+    return results
+
+    
 
 
 def normalize_text(text: str) -> str:
@@ -186,7 +243,8 @@ def normalize_text(text: str) -> str:
     Trả chuỗi đã chuẩn hóa; chuỗi rỗng hoặc chỉ có khoảng trắng trên trả ''.
     """
     # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt normalize_text")
+    #raise NotImplementedError("Chưa cài đặt normalize_text")
+    
 
 
 def shingles(text: str, k: int) -> set[str]:
