@@ -315,6 +315,17 @@ def minhash(shingle_ids: set[int], hash_params: dict) -> list[int]:
     xác. Không sinh hệ số mới, không trả ID phần tử đạt min.
     """
     # TODO: Sinh viên cài đặt.
+    p = hash_params["p"]
+    funcs = hash_params["hash_functions"]
+    
+    if not shingle_ids:
+        return [p] * len(funcs)
+    
+    # Chuyển set sang list một lần duy nhất để duyệt nhanh hơn
+    ids_list = list(shingle_ids)
+    
+    # Dùng list comprehension để tối ưu tốc độ thay vì vòng lặp for và append
+    return [min((h["a"] * x + h["b"]) % p for x in ids_list) for h in funcs]
     raise NotImplementedError("Chưa cài đặt minhash")
 
 
@@ -325,6 +336,13 @@ def jaccard(set_a: set[str], set_b: set[str]) -> float:
     rỗng trả 1.0; chỉ một tập rỗng trả 0.0. Không dùng tập mã băm thay thế.
     """
     # TODO: Sinh viên cài đặt.
+    if (not set_a) and (not set_b):
+        return 1.0
+    if (not set_a) or (not set_b):
+        return 0.0
+    union_set = set_a | set_b
+    intersection_set = set_a & set_b
+    return len(intersection_set)/len(union_set)
     raise NotImplementedError("Chưa cài đặt jaccard")
 
 
@@ -340,6 +358,18 @@ def signature_similarity(
     thành tập. Báo ValueError nếu độ dài không hợp lệ.
     """
     # TODO: Sinh viên cài đặt.
+    if (len(sig_a) != len(sig_b)) or len(sig_a) == 0:
+        raise ValueError("Độ dài chữ kí không hợp lệ")
+    if empty_a and empty_b:
+        return 1.0
+    if empty_a or empty_b:
+        return 0.0
+    length = len(sig_a)
+    count = 0
+    for i in range(0,length):
+        if sig_a[i]==sig_b[i]:
+            count+=1
+    return count/length
     raise NotImplementedError("Chưa cài đặt signature_similarity")
 
 
