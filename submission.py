@@ -12,6 +12,7 @@ import csv
 import json
 from pathlib import Path
 import math
+import hashlib
 
 
 # chuyển article thành set -> tránh trùng
@@ -242,8 +243,22 @@ def normalize_text(text: str) -> str:
     Không chuẩn hóa Unicode, bỏ dấu hoặc gọi lower() cho toàn bộ Unicode.
     Trả chuỗi đã chuẩn hóa; chuỗi rỗng hoặc chỉ có khoảng trắng trên trả ''.
     """
-    # TODO: Sinh viên cài đặt.
-    #raise NotImplementedError("Chưa cài đặt normalize_text")
+    result = []
+    in_whitespace = False
+    ascii_whitespaces = {' ', '\t', '\n', '\r', '\v', '\f'}
+    for char in text :
+        if 'A' <= char <= 'Z':
+            result.append(chr(ord(char)+32))
+            in_whitespace=False
+        elif char in ascii_whitespaces:
+            if not in_whitespace:
+                result.append(' ')
+                in_whitespace=True
+        else:
+            result.append(char)
+            in_whitespace=False
+    return "".join(result).strip(' ')
+
     
 
 
@@ -255,8 +270,21 @@ def shingles(text: str, k: int) -> set[str]:
     Chuỗi ngắn hơn k trả tập rỗng. Báo ValueError nếu k không phải số
     nguyên dương. Không chuẩn hóa văn bản thêm lần nữa trong hàm này.
     """
-    # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt shingles")
+    
+    if k <= 0:
+        raise ValueError("Không phải số nguyên dương")
+    
+    if len(text) < k:
+        return set()
+    
+    k_shingle=set()
+    
+    for i in range(len(text) - k + 1):
+        shingle = text[i:i+k]
+        k_shingle.add(shingle)
+        
+    return k_shingle
+    
 
 
 def shingle_id(shingle: str, p: int) -> int:
@@ -266,8 +294,14 @@ def shingle_id(shingle: str, p: int) -> int:
     big-endian rồi lấy modulo p. Không dùng hash() mặc định của Python.
     Trả int tất định giữa các lần chạy. Báo ValueError nếu p <= 1.
     """
-    # TODO: Sinh viên cài đặt.
-    raise NotImplementedError("Chưa cài đặt shingle_id")
+    if p <= 1:
+        raise ValueError("Giá trị p phải lớn hơn 1.")
+
+
+    digest = hashlib.sha256(shingle.encode("utf-8")).digest()
+    num = int.from_bytes(digest[:4], byteorder="big", signed=False)
+    return num % p
+
 
 
 def minhash(shingle_ids: set[int], hash_params: dict) -> list[int]:
