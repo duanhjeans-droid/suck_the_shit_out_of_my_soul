@@ -270,7 +270,8 @@ def shingles(text: str, k: int) -> set[str]:
     Chuỗi ngắn hơn k trả tập rỗng. Báo ValueError nếu k không phải số
     nguyên dương. Không chuẩn hóa văn bản thêm lần nữa trong hàm này.
     """
-    
+    if not isinstance(k, int) or isinstance(k, bool):
+        raise ValueError("k phải là số nguyên dương")
     if k <= 0:
         raise ValueError("Không phải số nguyên dương")
     
