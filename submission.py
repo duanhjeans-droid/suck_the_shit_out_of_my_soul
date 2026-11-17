@@ -14,6 +14,9 @@ from pathlib import Path
 import math
 import hashlib
 
+#Python ơi, dùng UTF-8 để xuất ra cho tớ nhó
+import sys
+sys.stdout.reconfigure(encoding="utf-8")
 
 # chuyển article thành set -> tránh trùng
 # chuyển links thành dict với key = source & value = list các đỉnh đến 
@@ -195,6 +198,8 @@ def topic_distribution(
         else:
             result.append(0.0)
     return result
+
+
 def mix_pageranks(
     topic_scores: list[list[float]], weights: list[float]
 ) -> list[float]:
